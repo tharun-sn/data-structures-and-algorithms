@@ -1,0 +1,35 @@
+Calculating the nth fibonacci number is simply the sum of (n - 1)th and (n - 2)th fibonacci numbers.
+
+A pretty straight forward algorithm looks like:
+
+fibonacci(n) {
+  if n < 1:
+    return n
+  else 
+    return fibonacci(n - 1) + fibonacci(n-2)
+}
+
+The problem with this reccursive approach is that, the number of lines executed in this code: T(n) 
+increases exponentially higher as the n increases.
+
+An alternate efficient algorithm is to calculate the fibonacci numbers from ground up which only computes in O(n)
+
+fibonacci(n) {
+  if n == 0:
+    return 0
+  else if n == 1: 
+    return 1
+  else {
+    a = 0 
+    b = 1
+    for i from 2 to n {
+      if i == n:
+        return a + b
+      else{
+        sum = a + b
+        a = b
+        b = sum
+      }
+    }
+  }
+}
